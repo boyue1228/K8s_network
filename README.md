@@ -5,7 +5,7 @@ OSI                         TCP/IP
 * application  data         Application
 * presentation data 
 * session      data
-* transport    segement     Transport (TCP/UDP - handshake Layer 4)
+* transport    segment     Transport (TCP/UDP - handshake Layer 4)
 * network      packets      Internet  (IP - Layer 3)
 * datalink     frames       Physical
 * physical     bits
@@ -60,6 +60,15 @@ config -> container runtime -> cni command -> cni plugin -> configured network w
 kind create cluster
 kubectl cluster-info --context kind-kind
 kubectl cluster-info dump
+kind delete cluster kind 
+// creating cluster with node by using kind cli command. 
+kind create cluster --config kind.yaml --name iptables 
+kubectl cluster-info --context kind-iptables
+kubectl get nodes
+// deploy pod
+kubectl apply -f curl1.yml && kubectl apply -f curl2.yml && kubectl apply -f echo-service.yml 
+kubectl get pods,svc,ep
+//
 ```
 
 # Overview 
@@ -67,6 +76,7 @@ kubectl cluster-info dump
 * Node : basis element of K8s for workload
 * Veth : virtual ethernet
 * IPVS : IP virtual service (load balance model: nat, direct routing, ip tunneling), round-robin, least-connection, desintation hashing, source hashing and never queue
+* eBPF : extend Berkely Packet filter , cilium use eBPF to control / orchestration of system 
 * Pause container: manage namespace for each pod
 * Kubenet : CNI plugin 
 
