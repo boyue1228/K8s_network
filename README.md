@@ -66,10 +66,13 @@ kubectl cluster-info dump
 * Pods versus Nodes: Pod is k8s's group of one or more application containers (docker) might includes volumne, networking and container infos ... The containers in a pod shares an IP and port and pods runs on Nodes which belongs to cluster k8s 
 * Node : basis element of K8s for workload
 * Veth : virtual ethernet
+* IPVS : IP virtual service (load balance model: nat, direct routing, ip tunneling), round-robin, least-connection, desintation hashing, source hashing and never queue
 * Pause container: manage namespace for each pod
 * Kubenet : CNI plugin 
 
-- Node contains: low level(kernel/cgroup), Pod { containers(pause, app container)(uid/pid/net/ipc - eth0: 10.200.1.5) } <-> kubenet (veth <-> bridge) -> (root/network/namespace - ethj0 10.100.1.5)
+- Node contains: low level(kernel/cgroup), Pod { containers(pause, app container)(uid/pid/net/ipc - eth0: 10.200.1.5) } <-> kubenet (veth <-> bridge) <-> IPVS -> (root/network/namespace - ethj0 10.100.1.5)
+
+Issue with Iptables as load balancer: cluster size - time - latency 
 
 # Execices - Tools Needed for A Cloud Guru Advance Network on Kubernetes in AWS Labs  
 [from source](https://github.com/ACloudGuru-Resources/Course_EKS-Basics/blob/master/nginx-deployment.yaml) 
