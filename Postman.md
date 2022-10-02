@@ -2,7 +2,9 @@
 
 # Postman learning Center
 
-[https://learning.postman.com/docs/getting-started/introduction/ ](https://learning.postman.com/docs/getting-started/introduction/)
+* [https://learning.postman.com/docs/getting-started/introduction/ ](https://learning.postman.com/docs/getting-started/introduction/)
+
+* install newman - CLI which less secure for safe environement: [https://learning.postman.com/docs/running-collections/using-newman-cli/installing-running-newman/](https://learning.postman.com/docs/running-collections/using-newman-cli/installing-running-newman/)
 
 
 
